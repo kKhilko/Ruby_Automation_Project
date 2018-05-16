@@ -27,7 +27,6 @@ class TestAuthentication < Test::Unit::TestCase
     assert(success_message.include?('You logged into a secure area!'))
   end
 
-
   def test_auth_invalid_user
     @page.visit_to('https://the-internet.herokuapp.com/login')
     @page.login(@page.get_random_gen_credentials, @page.get_valid_password)
