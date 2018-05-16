@@ -25,6 +25,18 @@ class AuthenticationPage
     @driver.navigate.to (url)
   end
 
+  def get_valid_username
+    @driver.find_element(xpath:'//h4//em[1]').text
+  end
+
+  def get_valid_password
+    @driver.find_element(xpath:'//h4//em[2]').text
+  end
+
+  def get_random_gen_credentials
+    (0...8).map { (65 + rand(26)).chr }.join
+  end
+  
   def login(username, password)
     @driver.find_element(css:'#username').send_keys(username)
     @driver.find_element(css:'#password').send_keys(password)
